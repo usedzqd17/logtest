@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Connexion sécurisée</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Bienvenue</h1>
+    <p>Connecte-toi pour accéder à la page privée</p>
+    <button id="login-btn">Se connecter</button>
+  </div>
+
+  <script>
+    // Initialise le widget d'identité
+    const loginBtn = document.getElementById("login-btn");
+
+    loginBtn.addEventListener("click", () => {
+      netlifyIdentity.open(); // ouvre le formulaire de connexion Netlify
+    });
+
+    netlifyIdentity.on("login", user => {
+      // Redirection après connexion
+      window.location.href = "page-privee.html";
+    });
+
+    netlifyIdentity.init();
+  </script>
+
+</body>
+</html>

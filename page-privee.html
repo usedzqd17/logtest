@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Page Privée</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Zone Sécurisée</h1>
+    <p>Tu es connecté ✅</p>
+    <button onclick="netlifyIdentity.logout()">Se déconnecter</button>
+  </div>
+
+  <script>
+    netlifyIdentity.on("init", user => {
+      if (!user) {
+        // Redirection vers la page d’accueil si l’utilisateur n’est pas connecté
+        window.location.href = "index.html";
+      }
+    });
+
+    netlifyIdentity.on("logout", () => {
+      window.location.href = "index.html";
+    });
+
+    netlifyIdentity.init();
+  </script>
+
+</body>
+</html>
