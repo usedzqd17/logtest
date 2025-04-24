@@ -16,16 +16,16 @@
   </div>
 
   <script>
-    // Initialise le widget d'identité
+   
     const loginBtn = document.getElementById("login-btn");
 
     loginBtn.addEventListener("click", () => {
-      netlifyIdentity.open(); // ouvre le formulaire de connexion Netlify
+      netlifyIdentity.open(); 
     });
 
     netlifyIdentity.on("login", user => {
-      // Redirection après connexion
-      window.location.href = "page-privee.html";
+    
+      window.location.href = "later.html";
     });
 
     netlifyIdentity.init();
